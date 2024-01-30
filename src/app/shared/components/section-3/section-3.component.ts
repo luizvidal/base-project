@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CarouselModule } from 'primeng/carousel';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { CarouselModule, CarouselResponsiveOptions } from 'primeng/carousel';
+import { BreakpointService } from '../../../common/services/breakpoint.service';
 
 @Component({
   selector: 'app-section-3',
@@ -10,7 +11,8 @@ import { CarouselModule } from 'primeng/carousel';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Section3Component {
-  products = [];
+  private readonly _breakpointService = inject(BreakpointService);
+  protected readonly currentBreakpoint = this._breakpointService.currentBreakpoint;
 
   cards = [
     {
@@ -50,25 +52,20 @@ export class Section3Component {
     },
   ];
 
-  responsiveOptions: any[] | undefined;
+  responsiveOptions: CarouselResponsiveOptions[] = [
+    {
+      breakpoint: '1199px',
+      numVisible: 1,
+      numScroll: 1
+    },
+    {
+      breakpoint: '600px',
+      numVisible: 1,
+      numScroll: 1,
+    },
+  ];
 
   ngOnInit() {
-    this.responsiveOptions = [
-      {
-        breakpoint: '1199px',
-        numVisible: 1,
-        numScroll: 1,
-      },
-      {
-        breakpoint: '991px',
-        numVisible: 2,
-        numScroll: 1,
-      },
-      {
-        breakpoint: '767px',
-        numVisible: 1,
-        numScroll: 1,
-      },
-    ];
+    this._breakpointService.setCurrentBreakpoint();
   }
 }

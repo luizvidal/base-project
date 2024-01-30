@@ -1,5 +1,7 @@
 <div class="centered-container py-8">
-  <p-tabView [style]="{ maxWidth: '50%',   }">
+  <p-tabView
+    [style]="{ maxWidth: currentBreakpoint() == 'DESKTOP' ? '50%' : '100%',   }"
+  >
     <p-tabPanel header="Como enviar">
       <div
         class="flex flex-column gap-3 align-items-center justify-content-center fadeinleft animation-duration-500"
@@ -7,12 +9,24 @@
         <div
           class="w-full flex flex-column gap-2 text-justify hover:shadow-4 py-3 border-round-sm bg-white p-3"
         >
-          <h1 class="text-xl font-bold line-height-3">
+          <h1
+            class="font-bold"
+            [ngClass]="
+              currentBreakpoint() == 'DESKTOP'
+                ? 'text-xl  line-height-3'
+                : 'text-base  line-height-2'
+            "
+          >
             <span class="text-primary">1.</span> Informe os dados da conta no
             exterior
           </h1>
           <p
-            class="text-base text-color-secondary font-normal text-justify line-height-3"
+            class="text-color-secondary font-normal text-justify"
+            [ngClass]="
+              currentBreakpoint() == 'DESKTOP'
+                ? 'text-base  line-height-3'
+                : 'text-sm  line-height-2'
+            "
           >
             Pode ser no seu nome, de outra pessoa ou de uma empresa.
           </p>
@@ -21,11 +35,23 @@
         <div
           class="w-full flex flex-column gap-2 text-justify hover:shadow-4 py-3 border-round-sm bg-white p-3"
         >
-          <h1 class="text-xl font-bold line-height-3">
+          <h1
+            class="font-bold"
+            [ngClass]="
+              currentBreakpoint() == 'DESKTOP'
+                ? 'text-xl  line-height-3'
+                : 'text-base  line-height-2'
+            "
+          >
             <span class="text-primary">2.</span> Faça um PIX ou uma TED
           </h1>
           <p
-            class="text-base text-color-secondary font-normal text-justify line-height-3"
+            class="text-color-secondary font-normal text-justify"
+            [ngClass]="
+              currentBreakpoint() == 'DESKTOP'
+                ? 'text-base  line-height-3'
+                : 'text-sm  line-height-2'
+            "
           >
             Transfira o valor em reais para a gente, nós convertemos e enviamos
             para o exterior. Identificamos o seu pagamento em até 15 minutos.
@@ -35,12 +61,24 @@
         <div
           class="w-full flex flex-column gap-2 text-justify hover:shadow-4 py-3 border-round-sm bg-white p-3"
         >
-          <h1 class="text-xl font-bold line-height-3">
+          <h1
+            class="font-bold"
+            [ngClass]="
+              currentBreakpoint() == 'DESKTOP'
+                ? 'text-xl  line-height-3'
+                : 'text-base  line-height-2'
+            "
+          >
             <span class="text-primary">3.</span> O dinheiro chega no destino em
             até 1 dia útil
           </h1>
           <p
-            class="text-base text-color-secondary font-normal text-justify line-height-3"
+            class="text-color-secondary font-normal text-justify"
+            [ngClass]="
+              currentBreakpoint() == 'DESKTOP'
+                ? 'text-base  line-height-3'
+                : 'text-sm  line-height-2'
+            "
           >
             Para operações de Euro ou Libra, o prazo é de apenas 15 minutos, na
             maioria dos casos
@@ -65,12 +103,24 @@
         <div
           class="w-full flex flex-column gap-2 text-justify hover:shadow-4 py-3 border-round-sm bg-white p-3"
         >
-          <h1 class="text-xl font-bold line-height-3">
+          <h1
+            class="font-bold"
+            [ngClass]="
+              currentBreakpoint() == 'DESKTOP'
+                ? 'text-xl  line-height-3'
+                : 'text-base  line-height-2'
+            "
+          >
             <span class="text-primary">1.</span> Selecione a moeda e motivo do
             recebimento
           </h1>
           <p
-            class="text-base text-color-secondary font-normal text-justify line-height-3"
+            class="text-color-secondary font-normal text-justify"
+            [ngClass]="
+              currentBreakpoint() == 'DESKTOP'
+                ? 'text-base  line-height-3'
+                : 'text-sm  line-height-2'
+            "
           >
             Reduzimos a burocracia, pedindo o mínimo de informações e documentos
             necessários para a sua segurança.
@@ -80,12 +130,24 @@
         <div
           class="w-full flex flex-column gap-2 text-justify hover:shadow-4 py-3 border-round-sm bg-white p-3"
         >
-          <h1 class="text-xl font-bold line-height-3">
+          <h1
+            class="font-bold"
+            [ngClass]="
+              currentBreakpoint() == 'DESKTOP'
+                ? 'text-xl  line-height-3'
+                : 'text-base  line-height-2'
+            "
+          >
             <span class="text-primary">2.</span> Compartilhe com seu pagador os
             dados bancários que vamos gerar
           </h1>
           <p
-            class="text-base text-color-secondary font-normal text-justify line-height-3"
+            class="text-color-secondary font-normal text-justify"
+            [ngClass]="
+              currentBreakpoint() == 'DESKTOP'
+                ? 'text-base  line-height-3'
+                : 'text-sm  line-height-2'
+            "
           >
             Assim, qualquer pessoa ou empresa no mundo poderá enviar dinheiro
             para você.
@@ -95,12 +157,24 @@
         <div
           class="w-full flex flex-column gap-2 text-justify hover:shadow-4 py-3 border-round-sm bg-white p-3"
         >
-          <h1 class="text-xl font-bold line-height-3">
+          <h1
+            class="font-bold"
+            [ngClass]="
+              currentBreakpoint() == 'DESKTOP'
+                ? 'text-xl  line-height-3'
+                : 'text-base  line-height-2'
+            "
+          >
             <span class="text-primary">3.</span> O dinheiro chega ao Brasil, em
             90% dos casos, em até 1 dia útil
           </h1>
           <p
-            class="text-base text-color-secondary font-normal text-justify line-height-3"
+            class="text-color-secondary font-normal text-justify"
+            [ngClass]="
+              currentBreakpoint() == 'DESKTOP'
+                ? 'text-base  line-height-3'
+                : 'text-sm  line-height-2'
+            "
           >
             Daí é só pedir o resgate dos valores para a sua conta bancária. O
             dinheiro deve cair na sua conta em até 15 minutos.
