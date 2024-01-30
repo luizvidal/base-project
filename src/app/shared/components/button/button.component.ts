@@ -22,4 +22,5 @@ export class ButtonComponent {
   @Input() rounded = false;
   @Input() outlined = false;
   @Input() label = '';
+  @Input() styleClass = '';
 }

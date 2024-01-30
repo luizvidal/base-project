@@ -1,8 +1,10 @@
+@switch (currentBreakpoint()) { @case('DESKTOP') {
+
 <div class="w-full flex">
   <div class="w-full" style="z-index: -1">
     <div
       class="h-30rem flex flex-column justify-content-center align-items-start gap-7"
-      style="padding-left: 15rem"
+      style="padding-left: 30%"
     >
       <h1 class="font-bold text-4xl">
         Transferência internacional com o
@@ -41,3 +43,48 @@
     "
   ></div>
 </div>
+} @default {
+
+<div class="w-full flex flex-column">
+  <div class="w-full" style="z-index: -1">
+    <div
+      class="h-20rem flex flex-column justify-content-center align-items-center gap-5 pl-3"
+    >
+      <h1 class="font-bold text-center text-3xl">
+        Transferência internacional com o
+        <span class="text-primary">menor preço</span> e
+        <span class="text-primary">envio rápido</span>
+      </h1>
+      <div class="flex flex-column gap-2">
+        <p
+          class="text-base flex align-items-center gap-2 font-semibold text-color-secondary"
+        >
+          <i class="pi pi-check text-primary font-semibold"></i>
+          Pagamento com Pix
+        </p>
+
+        <p
+          class="text-base flex align-items-center gap-2 font-semibold text-color-secondary"
+        >
+          <i class="pi pi-check text-primary font-semibold"></i>
+          Envio de Euro e Libra em minutos
+        </p>
+
+        <p
+          class="text-base flex align-items-center gap-2 font-semibold text-color-secondary"
+        >
+          <i class="pi pi-check text-primary font-semibold"></i>
+          Empresa brasileira com atendimento em português
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="w-full h-20rem bg-no-repeat bg-center bg-cover"
+    style="
+      background-image: url('../../../../assets/images/common/woman-laptop.jpg');
+      z-index: -1;
+    "
+  ></div>
+</div>
+}}
