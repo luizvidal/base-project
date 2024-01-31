@@ -4,7 +4,7 @@ import {
   OnInit,
   inject,
 } from '@angular/core';
-import { BreakpointService } from '../../../common/services/breakpoint.service';
+import { BreakpointService } from '@common/services/breakpoint.service';
 
 @Component({
   selector: 'app-section-1',

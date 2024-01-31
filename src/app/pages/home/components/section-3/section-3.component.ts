@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { BreakpointService } from '@common/services/breakpoint.service';
 import { CarouselModule, CarouselResponsiveOptions } from 'primeng/carousel';
-import { BreakpointService } from '../../../common/services/breakpoint.service';
 
 @Component({
   selector: 'app-section-3',

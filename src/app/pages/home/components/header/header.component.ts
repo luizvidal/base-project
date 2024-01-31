@@ -6,12 +6,12 @@ import {
   ViewChildren,
   inject,
 } from '@angular/core';
+import { BreakpointService } from '@app/common/services/breakpoint.service';
+import { ButtonComponent } from '@components/button/button.component';
+import { LinkComponent } from '@components/link/link.component';
+import { LogoComponent } from '@components/logo/logo.component';
 
 import { SidebarModule } from 'primeng/sidebar';
-import { BreakpointService } from '../../../common/services/breakpoint.service';
-import { ButtonComponent } from '../button/button.component';
-import { LinkComponent } from '../link/link.component';
-import { LogoComponent } from '../logo/logo.component';
 
 @Component({
   selector: 'app-header',
@@ -25,7 +25,8 @@ export class HeaderComponent implements OnInit {
   @ViewChildren(LinkComponent)
   private readonly _links!: QueryList<LinkComponent>;
   private readonly _breakpointService = inject(BreakpointService);
-  protected readonly currentBreakpoint = this._breakpointService.currentBreakpoint;
+  protected readonly currentBreakpoint =
+    this._breakpointService.currentBreakpoint;
   protected sidebarVisible = false;
 
   ngOnInit(): void {
