@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { BreakpointService } from '../../../common/services/breakpoint.service';
 import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { BreakpointService } from '@common/services/breakpoint.service';
 
 @Component({
   selector: 'app-section-4',

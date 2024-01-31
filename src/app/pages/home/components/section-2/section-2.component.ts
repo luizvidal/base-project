@@ -1,9 +1,10 @@
+import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { BreakpointService } from '@common/services/breakpoint.service';
+import { ButtonComponent } from '@components/button/button.component';
 import { DividerModule } from 'primeng/divider';
 import { TabViewModule } from 'primeng/tabview';
-import { BreakpointService } from '../../../common/services/breakpoint.service';
-import { ButtonComponent } from '../button/button.component';
-import { NgClass } from '@angular/common';
+
 
 @Component({
   selector: 'app-section-2',

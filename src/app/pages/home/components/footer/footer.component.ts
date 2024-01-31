@@ -5,8 +5,8 @@ import {
   inject,
   signal,
 } from '@angular/core';
+import { BreakpointService } from '@common/services/breakpoint.service';
 import { DividerModule } from 'primeng/divider';
-import { BreakpointService } from '../../../common/services/breakpoint.service';
 
 @Component({
   selector: 'app-footer',
