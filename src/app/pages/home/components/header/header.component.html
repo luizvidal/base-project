@@ -5,121 +5,11 @@
   </div>
 
   <div class="w-full flex gap-5 align-items-center px-5">
-    <app-link
-      label="Pessoa Física"
-      [overlay]="true"
-      (mouseenter)="openOverlay(link1)"
-      #link1
-    >
-      <div class="flex flex-column gap-3 p-2">
-        <app-link label="Como enviar" />
-        <app-link label="Como receber" />
-        <app-link label="App" />
-      </div>
-    </app-link>
-
-    <app-link
-      label="Pessoa Jurídica"
-      [overlay]="true"
-      (mouseenter)="openOverlay(link2)"
-      #link2
-    >
-      <div class="flex flex-column gap-3 p-2">
-        <app-link label="Conheça a solução PJ" />
-        <app-link label="Gerador de Invoice" />
-        <app-link label="Soluções para Startups" />
-        <app-link label="Serviços Paralegais" />
-        <app-link label="Remessa Pay" />
-        <app-link label="Importação e exportação" />
-      </div>
-    </app-link>
-
-    <app-link
-      label="Cotações"
-      [overlay]="true"
-      (mouseenter)="openOverlay(link3)"
-      #link3
-    >
-      <div class="flex flex-column gap-3 p-2">
-        <div class="flex justify-content-start align-items-center  gap-2">
-          <img
-            width="28px"
-            height="28px"
-            src="assets/images/countries-currency/usd.svg"
-            alt=""
-          />
-          <app-link label="USD Dólar americano" />
-        </div>
-
-        <div class="flex justify-content-start align-items-center  gap-2">
-          <img
-            width="28px"
-            height="28px"
-            src="assets/images/countries-currency/brl.svg"
-            alt=""
-          />
-          <app-link label="BRL Real brasileiro" />
-        </div>
-        <div class="flex justify-content-start align-items-center  gap-2">
-          <img
-            width="28px"
-            height="28px"
-            src="assets/images/countries-currency/ars.svg"
-            alt=""
-          />
-          <app-link label="ARS Peso argentino" />
-        </div>
-        <div class="flex justify-content-start align-items-center  gap-2">
-          <img
-            width="28px"
-            height="28px"
-            src="assets/images/countries-currency/aud.svg"
-            alt=""
-          />
-          <app-link label="AUD Dólar australiano" />
-        </div>
-        <div class="flex justify-content-start align-items-center  gap-2">
-          <img
-            width="28px"
-            height="28px"
-            src="assets/images/countries-currency/cad.svg"
-            alt=""
-          />
-          <app-link label="CAD Dólar canadense" />
-        </div>
-      </div>
-    </app-link>
-
-    <app-link
-      label="Ajuda"
-      [overlay]="true"
-      (mouseenter)="openOverlay(link4)"
-      #link4
-    >
-      <div class="flex flex-column gap-3 p-2">
-        <app-link label="Central de ajuda" />
-        <app-link label="Códigos SWIFT/BIC" />
-      </div>
-    </app-link>
-
-    <app-link
-      label="Parcerias e APIs"
-      [overlay]="true"
-      (mouseenter)="openOverlay(link5)"
-      #link5
-    >
-      <div class="flex flex-column gap-3 p-2">
-        <app-link label="Seja um parceiro" />
-        <app-link label="Use nossas APIs" />
-      </div>
-    </app-link>
-
-    <app-link label="Blog" (mouseenter)="closeOpennedOverlays()" />
+    <ng-template [ngTemplateOutlet]="navbar" />
   </div>
 
   <div class="flex-center gap-3">
-    <app-button [rounded]="true" [outlined]="true" label="Entrar" />
-    <app-button [rounded]="true" label="Cadastrar" />
+    <ng-template [ngTemplateOutlet]="buttons" />
   </div>
 </div>
 } @default {
@@ -128,12 +18,8 @@
 >
   <app-logo />
   <div class="flex-center gap-3">
-    @if (currentBreakpoint() == 'TABLET') {<app-button
-      [rounded]="true"
-      [outlined]="true"
-      label="Entrar"
-    />
-    <app-button [rounded]="true" label="Cadastrar" />
+    @if (currentBreakpoint() == 'TABLET') {
+    <ng-template [ngTemplateOutlet]="buttons" />
     }
 
     <div>
@@ -150,129 +36,45 @@
     ><i class="pi pi-times font-bold text-3xl text-primary"></i
   ></ng-template>
 
-  <div class="w-full flex flex-column gap-5 px-5 h-full">
-    <app-link
-      label="Pessoa Física"
-      [overlay]="true"
-      (mouseenter)="openOverlay(link1)"
-      #link1
-    >
-      <div class="flex flex-column gap-3 p-2">
-        <app-link label="Como enviar" />
-        <app-link label="Como receber" />
-        <app-link label="App" />
-      </div>
-    </app-link>
-
-    <app-link
-      label="Pessoa Jurídica"
-      [overlay]="true"
-      (mouseenter)="openOverlay(link2)"
-      #link2
-    >
-      <div class="flex flex-column gap-3 p-2">
-        <app-link label="Conheça a solução PJ" />
-        <app-link label="Gerador de Invoice" />
-        <app-link label="Soluções para Startups" />
-        <app-link label="Serviços Paralegais" />
-        <app-link label="Remessa Pay" />
-        <app-link label="Importação e exportação" />
-      </div>
-    </app-link>
-
-    <app-link
-      label="Cotações"
-      [overlay]="true"
-      (mouseenter)="openOverlay(link3)"
-      #link3
-    >
-      <div class="flex flex-column gap-3 p-2">
-        <div class="flex justify-content-start align-items-center  gap-2">
-          <img
-            width="28px"
-            height="28px"
-            src="assets/images/countries-currency/usd.svg"
-            alt=""
-          />
-          <app-link label="USD Dólar americano" />
-        </div>
-
-        <div class="flex justify-content-start align-items-center  gap-2">
-          <img
-            width="28px"
-            height="28px"
-            src="assets/images/countries-currency/brl.svg"
-            alt=""
-          />
-          <app-link label="BRL Real brasileiro" />
-        </div>
-
-        <div class="flex justify-content-start align-items-center  gap-2">
-          <img
-            width="28px"
-            height="28px"
-            src="assets/images/countries-currency/ars.svg"
-            alt=""
-          />
-          <app-link label="ARS Peso argentino" />
-        </div>
-        <div class="flex justify-content-start align-items-center  gap-2">
-          <img
-            width="28px"
-            height="28px"
-            src="assets/images/countries-currency/aud.svg"
-            alt=""
-          />
-          <app-link label="AUD Dólar australiano" />
-        </div>
-        <div class="flex justify-content-start align-items-center  gap-2">
-          <img
-            width="28px"
-            height="28px"
-            src="assets/images/countries-currency/cad.svg"
-            alt=""
-          />
-          <app-link label="CAD Dólar canadense" />
-        </div>
-      </div>
-    </app-link>
-
-    <app-link
-      label="Ajuda"
-      [overlay]="true"
-      (mouseenter)="openOverlay(link4)"
-      #link4
-    >
-      <div class="flex flex-column gap-3 p-2">
-        <app-link label="Central de ajuda" />
-        <app-link label="Códigos SWIFT/BIC" />
-      </div>
-    </app-link>
-
-    <app-link
-      label="Parcerias e APIs"
-      [overlay]="true"
-      (mouseenter)="openOverlay(link5)"
-      #link5
-    >
-      <div class="flex flex-column gap-3 p-2">
-        <app-link label="Seja um parceiro" />
-        <app-link label="Use nossas APIs" />
-      </div>
-    </app-link>
-
-    <app-link label="Blog" (mouseenter)="closeOpennedOverlays()" />
+  <div class="w-full flex flex-column gap-5 px-5">
+    <div class="w-full h-full flex flex-column gap-5 align-items-center px-5">
+      <ng-template [ngTemplateOutlet]="navbar" />
+    </div>
 
     @if (currentBreakpoint() == 'MOBILE') {
     <div class="flex flex-column gap-2 h-full justify-content-end">
-      <app-button styleClass="w-full" [rounded]="true" [outlined]="true"
-        >Entrar</app-button
-      >
-      <app-button styleClass="w-full" [rounded]="true">Cadastrar</app-button>
+      <ng-template [ngTemplateOutlet]="buttons" />
     </div>
-
     }
   </div>
 </p-sidebar>
-
 } }
+
+<ng-template #navbar>
+  @for(linkData of linkData(); track $index) {
+  <app-link
+    #linkRef
+    [label]="linkData.title"
+    [overlay]="!$last"
+    (mouseenter)="openOverlay(linkRef)"
+  >
+    <div class="flex flex-column gap-3 p-2">
+      @for(link of linkData.children; track $index) { @if(link.src) {
+      <div class="flex justify-content-start align-items-center gap-2">
+        <app-img [src]="link.src!" />
+        <app-link [label]="link.label" />
+      </div>
+      } @else {
+      <app-link [label]="link.label" />
+      } }
+    </div>
+  </app-link>
+  }
+</ng-template>
+
+<ng-template #buttons>
+  <app-button [rounded]="true" styleClass="w-full" [outlined]="true"
+    >Entrar</app-button
+  >
+  <app-button [rounded]="true" styleClass="w-full">Cadastrar</app-button>
+</ng-template>
