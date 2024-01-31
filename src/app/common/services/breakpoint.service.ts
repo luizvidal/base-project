@@ -1,5 +1,6 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Injectable, inject, signal } from '@angular/core';
+import { BreakpointType } from '@common/types/breakpoint.type';
 
 @Injectable({
   providedIn: 'root',
@@ -7,9 +8,7 @@ import { Injectable, inject, signal } from '@angular/core';
 export class BreakpointService {
   private readonly _breakpointObserver = inject(BreakpointObserver);
 
-  private _currentBreakpoint = signal<'MOBILE' | 'TABLET' | 'DESKTOP'>(
-    'DESKTOP'
-  );
+  private _currentBreakpoint = signal<BreakpointType>('DESKTOP');
 
   public currentBreakpoint = this._currentBreakpoint.asReadonly();
 
