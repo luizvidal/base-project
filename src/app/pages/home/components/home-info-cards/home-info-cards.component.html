@@ -1,0 +1,55 @@
+<div class="centered-container bg-white">
+  <div
+    class="flex-center flex-column gap-3"
+    [ngClass]="currentBreakpoint() == 'DESKTOP' ? 'py-7' : 'py-3'"
+  >
+    <h1
+      class="font-bold"
+      [ngClass]="
+        currentBreakpoint() == 'DESKTOP' ? 'text-4xl' : 'text-3xl text-center'
+      "
+    >
+      Mais benefícios para você enviar ou receber dinheiro
+    </h1>
+
+    <div
+      class="flex gap-3"
+      [ngClass]="{ 'flex-column': currentBreakpoint() != 'DESKTOP' }"
+    >
+      @for(card of cards; track $index) {
+      <div
+        class="h-14rem border-round-2xl m-3 surface-50 p-4 flex flex-column gap-3"
+      >
+        <i
+          class="{{ card.icon }} text-primary font-semibold"
+          [ngClass]="{
+              'text-xl': isDesktop,
+              'text-lg': isTablet,
+              'text-base': isMobile,
+            }"
+        ></i>
+        <h1
+          class="font-semibold line-height-2"
+          [ngClass]="{
+              'text-xl': isDesktop,
+              'text-lg': isTablet,
+              'text-base': isMobile,
+            }"
+        >
+          {{ card.title }}
+        </h1>
+        <p
+          class="text-color-secondary font-medium line-height-2"
+          [ngClass]="{
+              'text-base': isDesktop,
+              'text-md': isTablet,
+              'text-sm': isMobile,
+            }"
+        >
+          {{ card.content }}
+        </p>
+      </div>
+      }
+    </div>
+  </div>
+</div>

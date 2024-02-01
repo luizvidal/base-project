@@ -9,7 +9,7 @@ import {
 import { BreakpointService } from '@common/services/breakpoint.service';
 
 @Component({
-  selector: 'app-main-title-and-image',
+  selector: 'app-home-title-and-image',
   standalone: true,
   imports: [NgClass],
   template: `<div
@@ -18,10 +18,10 @@ import { BreakpointService } from '@common/services/breakpoint.service';
   >
     <div class="w-full" style="z-index: -1">
       <div
-        class="h-30rem flex flex-column justify-content-center align-items-start"
+        class="h-30rem flex flex-column justify-content-center align-items-start padding-left-align"
         [ngClass]="{
-          'h-20rem px-3 gap-5 pl-5-percent': currentBreakpoint() != 'DESKTOP',
-          'gap-7 pl-30-percent': currentBreakpoint() == 'DESKTOP'
+          'h-20rem px-3 gap-5': currentBreakpoint() != 'DESKTOP',
+          'gap-7': currentBreakpoint() == 'DESKTOP'
         }"
       >
         <h1
@@ -62,17 +62,33 @@ import { BreakpointService } from '@common/services/breakpoint.service';
     ></div>
   </div> `,
   styles: `
-    .pl-30-percent {
-      padding-left: 30% !important;
-    }
-
     .pl-5-percent {
       padding-left: 5%;
     }
+
+    .padding-left-align {
+      padding-left: 30%
+    }
+
+    @media only screen and (max-width: 1720px) {
+      .padding-left-align {
+        padding-left: 18%
+      }
+    }
+
+    @media only screen and (max-width: 600px)  {
+      .padding-left-align {
+        padding-left: 5%
+      }
+    }
+
+
+
+
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MainTitleAndImageComponent implements OnInit {
+export class HomeTitleAndImageComponent implements OnInit {
   private readonly _breakpointService = inject(BreakpointService);
   protected readonly currentBreakpoint =
     this._breakpointService.currentBreakpoint;

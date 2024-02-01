@@ -3,16 +3,17 @@ import { BreakpointService } from '@common/services/breakpoint.service';
 import { CarouselModule, CarouselResponsiveOptions } from 'primeng/carousel';
 
 @Component({
-  selector: 'app-section-3',
+  selector: 'app-home-carousel-cards',
   standalone: true,
   imports: [CarouselModule],
-  templateUrl: './section-3.component.html',
-  styleUrl: './section-3.component.scss',
+  templateUrl: './home-carousel-cards.component.html',
+  styleUrl: './home-carousel-cards.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Section3Component {
+export class HomeCarouselCardsComponent {
   private readonly _breakpointService = inject(BreakpointService);
-  protected readonly currentBreakpoint = this._breakpointService.currentBreakpoint;
+  protected readonly currentBreakpoint =
+    this._breakpointService.currentBreakpoint;
 
   cards = [
     {
@@ -54,12 +55,12 @@ export class Section3Component {
 
   responsiveOptions: CarouselResponsiveOptions[] = [
     {
-      breakpoint: '1199px',
-      numVisible: 1,
-      numScroll: 1
+      breakpoint: '1980px',
+      numVisible: 3,
+      numScroll: 1,
     },
     {
-      breakpoint: '600px',
+      breakpoint: '1200px',
       numVisible: 1,
       numScroll: 1,
     },
@@ -67,5 +68,17 @@ export class Section3Component {
 
   ngOnInit() {
     this._breakpointService.setCurrentBreakpoint();
+  }
+
+  get isDesktop() {
+    return this.currentBreakpoint() == 'DESKTOP';
+  }
+
+  get isTablet() {
+    return this.currentBreakpoint() == 'TABLET';
+  }
+
+  get isMobile() {
+    return this.currentBreakpoint() == 'MOBILE';
   }
 }

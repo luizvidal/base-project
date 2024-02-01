@@ -1,28 +1,28 @@
 import { Component } from '@angular/core';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { MainTitleAndImageComponent } from './components/main-title-and-image/main-title-and-image.component';
-import { Section2Component } from './components/section-2/section-2.component';
-import { Section3Component } from './components/section-3/section-3.component';
-import { Section4Component } from './components/section-4/section-4.component';
+import { HomeCarouselCardsComponent } from './components/home-carousel-cards/home-carousel-cards.component';
+import { HomeInfoCardsComponent } from './components/home-info-cards/home-info-cards.component';
+import { HomeTabPanelComponent } from './components/home-tab-panel/home-tab-panel.component';
+import { HomeTitleAndImageComponent } from './components/home-title-and-image/home-title-and-image.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     HeaderComponent,
-    MainTitleAndImageComponent,
-    Section2Component,
-    Section3Component,
-    Section4Component,
+    HomeTitleAndImageComponent,
+    HomeCarouselCardsComponent,
+    HomeTabPanelComponent,
+    HomeInfoCardsComponent,
     FooterComponent,
   ],
   template: `<app-header />
     <div class="container">
-      <app-main-title-and-image />
-      <app-section-3 />
-      <app-section-2 />
-      <app-section-4 />
+      <app-home-title-and-image />
+      <app-home-carousel-cards />
+      <app-home-tab-panel />
+      <app-home-info-cards />
       <app-footer />
     </div> `,
   styles: `

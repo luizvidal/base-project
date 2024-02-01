@@ -7,14 +7,15 @@ import { TabViewModule } from 'primeng/tabview';
 
 
 @Component({
-  selector: 'app-section-2',
+  selector: 'app-home-tab-panel',
   standalone: true,
   imports: [TabViewModule, DividerModule, ButtonComponent, NgClass],
-  templateUrl: './section-2.component.html',
-  styleUrl: './section-2.component.scss',
+  templateUrl: './home-tab-panel.component.html',
+  styleUrl: './home-tab-panel.component.scss',
+
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Section2Component {
+export class HomeTabPanelComponent {
   private readonly _breakpointService = inject(BreakpointService);
   protected readonly currentBreakpoint =
     this._breakpointService.currentBreakpoint;

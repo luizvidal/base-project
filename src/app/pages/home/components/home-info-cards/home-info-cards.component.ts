@@ -3,14 +3,13 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { BreakpointService } from '@common/services/breakpoint.service';
 
 @Component({
-  selector: 'app-section-4',
+  selector: 'app-home-info-cards',
   standalone: true,
   imports: [NgClass],
-  templateUrl: './section-4.component.html',
-  styleUrl: './section-4.component.scss',
+  templateUrl: './home-info-cards.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Section4Component {
+export class HomeInfoCardsComponent {
   private readonly _breakpointService = inject(BreakpointService);
   protected readonly currentBreakpoint =
     this._breakpointService.currentBreakpoint;
@@ -38,5 +37,17 @@ export class Section4Component {
 
   ngOnInit() {
     this._breakpointService.setCurrentBreakpoint();
+  }
+
+  get isDesktop() {
+    return this.currentBreakpoint() == 'DESKTOP';
+  }
+
+  get isTablet() {
+    return this.currentBreakpoint() == 'TABLET';
+  }
+
+  get isMobile() {
+    return this.currentBreakpoint() == 'MOBILE';
   }
 }

@@ -30,35 +30,52 @@
 } @default {
 <div class="surface-50">
   <div class="flex-center flex-column gap-3 py-3">
-    <h1 class="text-3xl font-bold text-center">
+    <h1 class="text-2xl font-bold text-center">
       Soluções para diversas necessidades
     </h1>
 
     <p-carousel
       [value]="cards"
-      [numVisible]="3"
+      [numVisible]="1"
       [numScroll]="1"
       [circular]="false"
       [showIndicators]="false"
       [responsiveOptions]="responsiveOptions"
       orientation="vertical"
-      verticalViewPortHeight="300px"
+      verticalViewPortHeight="16rem"
     >
       <ng-template let-card pTemplate="item">
         <div
-          class="h-13rem border-round-2xl m-3 bg-white p-4 flex flex-column gap-3"
+          class="h-14rem border-round-2xl m-3 bg-white p-4 flex flex-column gap-3"
         >
-          <i [class]="card.icon + ' text-primary font-semibold text-2xl'"></i>
-          <h1 class="text-xl font-semibold line-height-2">
+          <i
+            class="{{ card.icon }} text-primary font-semibold"
+            [ngClass]="{
+              'text-lg': isTablet,
+              'text-base': isMobile,
+            }"
+          ></i>
+          <h1
+            class="font-semibold line-height-2"
+            [ngClass]="{
+              'text-lg': isTablet,
+              'text-base': isMobile,
+            }"
+          >
             {{ card.title }}
           </h1>
-          <p class="text-base text-color-secondary font-medium line-height-2">
+          <p
+            class="text-color-secondary font-medium line-height-2"
+            [ngClass]="{
+              'text-md': isTablet,
+              'text-sm': isMobile,
+            }"
+          >
             {{ card.content }}
           </p>
         </div>
       </ng-template>
     </p-carousel>
-
   </div>
 </div>
 

@@ -25,19 +25,23 @@
     <div>
       <i
         (click)="sidebarVisible = true"
-        class="pi pi-align-justify font-bold text-3xl text-primary"
+        class="pi pi-align-justify font-bold text-2xl text-primary"
       ></i>
     </div>
   </div>
 </div>
 
-<p-sidebar [(visible)]="sidebarVisible" [fullScreen]="true">
+<p-sidebar
+  [(visible)]="sidebarVisible"
+  [fullScreen]="currentBreakpoint() == 'MOBILE'"
+  position="right"
+>
   <ng-template pTemplate="closeicon"
-    ><i class="pi pi-times font-bold text-3xl text-primary"></i
+    ><i class="pi pi-times font-bold text-2xl text-primary"></i
   ></ng-template>
 
-  <div class="w-full flex flex-column gap-5 px-5">
-    <div class="w-full h-full flex flex-column gap-5 align-items-center px-5">
+  <div class="w-full h-full flex flex-column gap-5 px-5">
+    <div class="w-full h-full flex flex-column gap-5 align-items-start">
       <ng-template [ngTemplateOutlet]="navbar" />
     </div>
 
@@ -66,6 +70,7 @@
       </div>
       } @else {
       <app-link [label]="link.label" />
+
       } }
     </div>
   </app-link>
