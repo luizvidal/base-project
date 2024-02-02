@@ -18,7 +18,7 @@
 >
   <app-logo />
   <div class="flex-center gap-3">
-    @if (currentBreakpoint() == 'TABLET') {
+    @if (isTablet) {
     <ng-template [ngTemplateOutlet]="buttons" />
     }
 
@@ -33,7 +33,7 @@
 
 <p-sidebar
   [(visible)]="sidebarVisible"
-  [fullScreen]="currentBreakpoint() == 'MOBILE'"
+  [fullScreen]="isMobile"
   position="right"
 >
   <ng-template pTemplate="closeicon"
@@ -45,7 +45,7 @@
       <ng-template [ngTemplateOutlet]="navbar" />
     </div>
 
-    @if (currentBreakpoint() == 'MOBILE') {
+    @if (isMobile) {
     <div class="flex flex-column gap-2 h-full justify-content-end">
       <ng-template [ngTemplateOutlet]="buttons" />
     </div>

@@ -1,7 +1,5 @@
 <div class="centered-container py-8">
-  <p-tabView
-    [style]="{ maxWidth: currentBreakpoint() == 'DESKTOP' ? '50%' : '100%',   }"
-  >
+  <p-tabView [style]="{ maxWidth: isDesktop ? '50%' : '100%',   }">
     <p-tabPanel header="Como enviar">
       <div
         class="flex flex-column gap-3 align-items-center justify-content-center fadeinleft animation-duration-500"
@@ -13,9 +11,7 @@
           <h1
             class="font-bold"
             [ngClass]="
-              currentBreakpoint() == 'DESKTOP'
-                ? 'text-xl  line-height-3'
-                : 'text-base  line-height-2'
+              isDesktop ? 'text-xl  line-height-3' : 'text-base  line-height-2'
             "
           >
             <span class="text-primary">{{ data.id }}.</span> {{ data.title }}
@@ -23,9 +19,7 @@
           <p
             class="text-color-secondary font-normal text-justify"
             [ngClass]="
-              currentBreakpoint() == 'DESKTOP'
-                ? 'text-base  line-height-3'
-                : 'text-sm  line-height-2'
+              isDesktop ? 'text-base  line-height-3' : 'text-sm  line-height-2'
             "
           >
             {{ data.content }}
@@ -56,9 +50,7 @@
           <h1
             class="font-bold"
             [ngClass]="
-              currentBreakpoint() == 'DESKTOP'
-                ? 'text-xl  line-height-3'
-                : 'text-base  line-height-2'
+              isDesktop ? 'text-xl  line-height-3' : 'text-base  line-height-2'
             "
           >
             <span class="text-primary">{{ data.id }}.</span> {{ data.title }}
@@ -66,9 +58,7 @@
           <p
             class="text-color-secondary font-normal text-justify"
             [ngClass]="
-              currentBreakpoint() == 'DESKTOP'
-                ? 'text-base  line-height-3'
-                : 'text-sm  line-height-2'
+              isDesktop ? 'text-base  line-height-3' : 'text-sm  line-height-2'
             "
           >
             {{ data.content }}

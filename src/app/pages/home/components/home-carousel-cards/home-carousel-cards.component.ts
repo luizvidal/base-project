@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { BreakpointService } from '@common/services/breakpoint.service';
+import { Component } from '@angular/core';
+import { ResponsiveComponent } from '@common/components/responsive/responsive.component';
 import { CarouselModule, CarouselResponsiveOptions } from 'primeng/carousel';
 
 @Component({
@@ -7,14 +7,16 @@ import { CarouselModule, CarouselResponsiveOptions } from 'primeng/carousel';
   standalone: true,
   imports: [CarouselModule],
   templateUrl: './home-carousel-cards.component.html',
-  styleUrl: './home-carousel-cards.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styles: `
+    :host ::ng-deep {
+      button.p-ripple.p-element.p-carousel-prev.p-link,
+      button.p-ripple.p-element.p-carousel-next.p-link {
+        color: var(--primary-color);
+      }
+    }
+  `,
 })
-export class HomeCarouselCardsComponent {
-  private readonly _breakpointService = inject(BreakpointService);
-  protected readonly currentBreakpoint =
-    this._breakpointService.currentBreakpoint;
-
+export class HomeCarouselCardsComponent extends ResponsiveComponent {
   cards = [
     {
       icon: 'pi pi-comments',
@@ -65,20 +67,4 @@ export class HomeCarouselCardsComponent {
       numScroll: 1,
     },
   ];
-
-  ngOnInit() {
-    this._breakpointService.setCurrentBreakpoint();
-  }
-
-  get isDesktop() {
-    return this.currentBreakpoint() == 'DESKTOP';
-  }
-
-  get isTablet() {
-    return this.currentBreakpoint() == 'TABLET';
-  }
-
-  get isMobile() {
-    return this.currentBreakpoint() == 'MOBILE';
-  }
 }

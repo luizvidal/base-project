@@ -1,36 +1,23 @@
 import { NgClass } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-  inject,
-  signal,
-} from '@angular/core';
-import { BreakpointService } from '@common/services/breakpoint.service';
+import { Component, signal } from '@angular/core';
+import { ResponsiveComponent } from '@common/components/responsive/responsive.component';
 
 @Component({
   selector: 'app-home-title-and-image',
   standalone: true,
   imports: [NgClass],
-  template: `<div
-    class="w-full flex"
-    [ngClass]="{ 'flex-column': currentBreakpoint() != 'DESKTOP' }"
-  >
+  template: `<div class="w-full flex" [ngClass]="{ 'flex-column': !isDesktop }">
     <div class="w-full" style="z-index: -1">
       <div
         class="h-30rem flex flex-column justify-content-center align-items-start padding-left-align surface-100"
         [ngClass]="{
-          'h-20rem px-3 gap-5': currentBreakpoint() != 'DESKTOP',
-          'gap-7': currentBreakpoint() == 'DESKTOP'
+          'h-20rem px-3 gap-5': !isDesktop,
+          'gap-7': isDesktop
         }"
       >
         <h1
           class="font-bold"
-          [class]="
-            currentBreakpoint() == 'DESKTOP'
-              ? 'text-4xl'
-              : 'text-2xl text-center'
-          "
+          [class]="isDesktop ? 'text-4xl' : 'text-2xl text-center'"
         >
           Transferência internacional com o
           <span class="text-primary">menor preço</span> e
@@ -56,8 +43,8 @@ import { BreakpointService } from '@common/services/breakpoint.service';
       z-index: -1;
     "
       [ngClass]="{
-        'h-20rem px-3 gap-5': currentBreakpoint() != 'DESKTOP',
-        'h-30rem gap-7': currentBreakpoint() == 'DESKTOP'
+        'h-20rem px-3 gap-5': !isDesktop,
+        'h-30rem gap-7': isDesktop
       }"
     ></div>
   </div> `,
@@ -81,25 +68,12 @@ import { BreakpointService } from '@common/services/breakpoint.service';
         padding-left: 5%
       }
     }
-
-
-
-
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeTitleAndImageComponent implements OnInit {
-  private readonly _breakpointService = inject(BreakpointService);
-  protected readonly currentBreakpoint =
-    this._breakpointService.currentBreakpoint;
-
+export class HomeTitleAndImageComponent extends ResponsiveComponent {
   protected readonly data = signal([
     'Pagamento com Pix',
     'Envio de Euro e Libra em minutos',
     'Empresa brasileira com atendimento em português',
   ]);
-
-  ngOnInit(): void {
-    this._breakpointService.setCurrentBreakpoint();
-  }
 }

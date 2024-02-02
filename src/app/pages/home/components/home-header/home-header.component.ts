@@ -6,14 +6,12 @@ import {
 import {
   ChangeDetectionStrategy,
   Component,
-  OnInit,
   QueryList,
   ViewChildren,
-  inject,
-  signal,
+  signal
 } from '@angular/core';
-import { BreakpointService } from '@app/common/services/breakpoint.service';
 import { ChangeThemeButtonComponent } from '@common/components/change-theme-button/change-theme-button.component';
+import { ResponsiveComponent } from '@common/components/responsive/responsive.component';
 import { ButtonComponent } from '@components/button/button.component';
 import { ImgComponent } from '@components/img/img.component';
 import { LinkComponent } from '@components/link/link.component';
@@ -38,12 +36,10 @@ import { SidebarModule } from 'primeng/sidebar';
   templateUrl: './home-header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeHeaderComponent implements OnInit {
+export class HomeHeaderComponent extends ResponsiveComponent {
   @ViewChildren(LinkComponent)
   private readonly _links!: QueryList<LinkComponent>;
-  private readonly _breakpointService = inject(BreakpointService);
-  protected readonly currentBreakpoint =
-    this._breakpointService.currentBreakpoint;
+
   protected sidebarVisible = false;
 
   protected readonly linkData = signal<LinkDataInterface[]>([
@@ -101,10 +97,6 @@ export class HomeHeaderComponent implements OnInit {
     },
     { title: 'Blog', children: [] },
   ]);
-
-  ngOnInit(): void {
-    this._breakpointService.setCurrentBreakpoint();
-  }
 
   openOverlay(link: LinkComponent) {
     this.closeOpennedOverlays();
