@@ -1,11 +1,6 @@
 import { NgClass } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  signal,
-} from '@angular/core';
-import { BreakpointService } from '@common/services/breakpoint.service';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ResponsiveComponent } from '@common/components/responsive/responsive.component';
 import { ButtonComponent } from '@components/button/button.component';
 import { DividerModule } from 'primeng/divider';
 import { TabViewModule } from 'primeng/tabview';
@@ -15,16 +10,10 @@ import { TabViewModule } from 'primeng/tabview';
   standalone: true,
   imports: [TabViewModule, DividerModule, ButtonComponent, NgClass],
   templateUrl: './home-tab-panel.component.html',
-  styleUrl: './home-tab-panel.component.scss',
-
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeTabPanelComponent {
-  private readonly _breakpointService = inject(BreakpointService);
-  protected readonly currentBreakpoint =
-    this._breakpointService.currentBreakpoint;
-
-  protected howSendData = signal([
+export class HomeTabPanelComponent extends ResponsiveComponent {
+  protected howSendData = signal<DataIterface[]>([
     {
       id: 1,
       title: 'Informe os dados da conta no exterior',
@@ -44,7 +33,7 @@ export class HomeTabPanelComponent {
     },
   ]);
 
-  protected howRecieveData = signal([
+  protected howRecieveData = signal<DataIterface[]>([
     {
       id: 1,
       title: 'Selecione a moeda e motivo do recebimento',
@@ -64,8 +53,10 @@ export class HomeTabPanelComponent {
         'Daí é só pedir o resgate dos valores para a sua conta bancária. O dinheiro deve cair na sua conta em até 15 minutos.',
     },
   ]);
+}
 
-  ngOnInit() {
-    this._breakpointService.setCurrentBreakpoint();
-  }
+interface DataIterface {
+  id: number;
+  title: string;
+  content: string;
 }

@@ -1,11 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-  inject,
-  signal,
-} from '@angular/core';
-import { BreakpointService } from '@common/services/breakpoint.service';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { DividerModule } from 'primeng/divider';
 
 @Component({
@@ -15,13 +8,6 @@ import { DividerModule } from 'primeng/divider';
   templateUrl: './home-footer.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeFooterComponent implements OnInit {
+export class HomeFooterComponent {
   protected readonly currentYear = signal(new Date().getFullYear());
-  private readonly _breakpointService = inject(BreakpointService);
-  protected readonly currentBreakpoint =
-    this._breakpointService.currentBreakpoint;
-
-  ngOnInit(): void {
-    this._breakpointService.setCurrentBreakpoint();
-  }
 }

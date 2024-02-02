@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { BreakpointService } from '@common/services/breakpoint.service';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ResponsiveComponent } from '@common/components/responsive/responsive.component';
 
 @Component({
   selector: 'app-home-info-cards',
@@ -9,12 +9,8 @@ import { BreakpointService } from '@common/services/breakpoint.service';
   templateUrl: './home-info-cards.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeInfoCardsComponent {
-  private readonly _breakpointService = inject(BreakpointService);
-  protected readonly currentBreakpoint =
-    this._breakpointService.currentBreakpoint;
-
-  cards = [
+export class HomeInfoCardsComponent extends ResponsiveComponent {
+  cards = signal<CardInterface[]>([
     {
       icon: 'pi pi-percentage',
       title: 'Taxas até 8 vezes menores que os bancos',
@@ -33,21 +29,11 @@ export class HomeInfoCardsComponent {
       content:
         'Qualquer pessoa pode fazer sua transferência sozinha e 100% online.',
     },
-  ];
+  ]);
+}
 
-  ngOnInit() {
-    this._breakpointService.setCurrentBreakpoint();
-  }
-
-  get isDesktop() {
-    return this.currentBreakpoint() == 'DESKTOP';
-  }
-
-  get isTablet() {
-    return this.currentBreakpoint() == 'TABLET';
-  }
-
-  get isMobile() {
-    return this.currentBreakpoint() == 'MOBILE';
-  }
+interface CardInterface {
+  icon: string;
+  title: string;
+  content: string;
 }
