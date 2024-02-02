@@ -12,11 +12,10 @@ import { DividerModule } from 'primeng/divider';
   selector: 'app-footer',
   standalone: true,
   imports: [DividerModule],
-  templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss',
+  templateUrl: './home-footer.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FooterComponent implements OnInit {
+export class HomeFooterComponent implements OnInit {
   protected readonly currentYear = signal(new Date().getFullYear());
   private readonly _breakpointService = inject(BreakpointService);
   protected readonly currentBreakpoint =

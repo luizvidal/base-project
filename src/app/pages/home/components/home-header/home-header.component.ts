@@ -13,6 +13,7 @@ import {
   signal,
 } from '@angular/core';
 import { BreakpointService } from '@app/common/services/breakpoint.service';
+import { ChangeThemeButtonComponent } from '@common/components/change-theme-button/change-theme-button.component';
 import { ButtonComponent } from '@components/button/button.component';
 import { ImgComponent } from '@components/img/img.component';
 import { LinkComponent } from '@components/link/link.component';
@@ -32,11 +33,12 @@ import { SidebarModule } from 'primeng/sidebar';
     CommonModule,
     NgComponentOutlet,
     NgTemplateOutlet,
+    ChangeThemeButtonComponent,
   ],
-  templateUrl: './header.component.html',
+  templateUrl: './home-header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent implements OnInit {
+export class HomeHeaderComponent implements OnInit {
   @ViewChildren(LinkComponent)
   private readonly _links!: QueryList<LinkComponent>;
   private readonly _breakpointService = inject(BreakpointService);

@@ -6,8 +6,9 @@
       <div
         class="flex flex-column gap-3 align-items-center justify-content-center fadeinleft animation-duration-500"
       >
+        @for (data of howSendData(); track $index) {
         <div
-          class="w-full flex flex-column gap-2 text-justify hover:shadow-4 py-3 border-round-sm bg-white p-3"
+          class="w-full flex flex-column gap-2 text-justify hover:shadow-1 py-3 border-round-sm p-3 surface-border surface-50"
         >
           <h1
             class="font-bold"
@@ -17,8 +18,7 @@
                 : 'text-base  line-height-2'
             "
           >
-            <span class="text-primary">1.</span> Informe os dados da conta no
-            exterior
+            <span class="text-primary">{{ data.id }}.</span> {{ data.title }}
           </h1>
           <p
             class="text-color-secondary font-normal text-justify"
@@ -28,62 +28,11 @@
                 : 'text-sm  line-height-2'
             "
           >
-            Pode ser no seu nome, de outra pessoa ou de uma empresa.
+            {{ data.content }}
           </p>
         </div>
 
-        <div
-          class="w-full flex flex-column gap-2 text-justify hover:shadow-4 py-3 border-round-sm bg-white p-3"
-        >
-          <h1
-            class="font-bold"
-            [ngClass]="
-              currentBreakpoint() == 'DESKTOP'
-                ? 'text-xl  line-height-3'
-                : 'text-base  line-height-2'
-            "
-          >
-            <span class="text-primary">2.</span> Faça um PIX ou uma TED
-          </h1>
-          <p
-            class="text-color-secondary font-normal text-justify"
-            [ngClass]="
-              currentBreakpoint() == 'DESKTOP'
-                ? 'text-base  line-height-3'
-                : 'text-sm  line-height-2'
-            "
-          >
-            Transfira o valor em reais para a gente, nós convertemos e enviamos
-            para o exterior. Identificamos o seu pagamento em até 15 minutos.
-          </p>
-        </div>
-
-        <div
-          class="w-full flex flex-column gap-2 text-justify hover:shadow-4 py-3 border-round-sm bg-white p-3"
-        >
-          <h1
-            class="font-bold"
-            [ngClass]="
-              currentBreakpoint() == 'DESKTOP'
-                ? 'text-xl  line-height-3'
-                : 'text-base  line-height-2'
-            "
-          >
-            <span class="text-primary">3.</span> O dinheiro chega no destino em
-            até 1 dia útil
-          </h1>
-          <p
-            class="text-color-secondary font-normal text-justify"
-            [ngClass]="
-              currentBreakpoint() == 'DESKTOP'
-                ? 'text-base  line-height-3'
-                : 'text-sm  line-height-2'
-            "
-          >
-            Para operações de Euro ou Libra, o prazo é de apenas 15 minutos, na
-            maioria dos casos
-          </p>
-        </div>
+        }
 
         <div class="flex w-full justify-content-start">
           <app-button
@@ -100,8 +49,9 @@
       <div
         class="flex flex-column gap-3 align-items-center justify-content-center fadeinleft animation-duration-500"
       >
+        @for (data of howRecieveData(); track $index) {
         <div
-          class="w-full flex flex-column gap-2 text-justify hover:shadow-4 py-3 border-round-sm bg-white p-3"
+          class="w-full flex flex-column gap-2 text-justify hover:shadow-1 py-3 border-round-sm p-3 surface-border surface-50"
         >
           <h1
             class="font-bold"
@@ -111,8 +61,7 @@
                 : 'text-base  line-height-2'
             "
           >
-            <span class="text-primary">1.</span> Selecione a moeda e motivo do
-            recebimento
+            <span class="text-primary">{{ data.id }}.</span> {{ data.title }}
           </h1>
           <p
             class="text-color-secondary font-normal text-justify"
@@ -122,64 +71,11 @@
                 : 'text-sm  line-height-2'
             "
           >
-            Reduzimos a burocracia, pedindo o mínimo de informações e documentos
-            necessários para a sua segurança.
+            {{ data.content }}
           </p>
         </div>
 
-        <div
-          class="w-full flex flex-column gap-2 text-justify hover:shadow-4 py-3 border-round-sm bg-white p-3"
-        >
-          <h1
-            class="font-bold"
-            [ngClass]="
-              currentBreakpoint() == 'DESKTOP'
-                ? 'text-xl  line-height-3'
-                : 'text-base  line-height-2'
-            "
-          >
-            <span class="text-primary">2.</span> Compartilhe com seu pagador os
-            dados bancários que vamos gerar
-          </h1>
-          <p
-            class="text-color-secondary font-normal text-justify"
-            [ngClass]="
-              currentBreakpoint() == 'DESKTOP'
-                ? 'text-base  line-height-3'
-                : 'text-sm  line-height-2'
-            "
-          >
-            Assim, qualquer pessoa ou empresa no mundo poderá enviar dinheiro
-            para você.
-          </p>
-        </div>
-
-        <div
-          class="w-full flex flex-column gap-2 text-justify hover:shadow-4 py-3 border-round-sm bg-white p-3"
-        >
-          <h1
-            class="font-bold"
-            [ngClass]="
-              currentBreakpoint() == 'DESKTOP'
-                ? 'text-xl  line-height-3'
-                : 'text-base  line-height-2'
-            "
-          >
-            <span class="text-primary">3.</span> O dinheiro chega ao Brasil, em
-            90% dos casos, em até 1 dia útil
-          </h1>
-          <p
-            class="text-color-secondary font-normal text-justify"
-            [ngClass]="
-              currentBreakpoint() == 'DESKTOP'
-                ? 'text-base  line-height-3'
-                : 'text-sm  line-height-2'
-            "
-          >
-            Daí é só pedir o resgate dos valores para a sua conta bancária. O
-            dinheiro deve cair na sua conta em até 15 minutos.
-          </p>
-        </div>
+        }
 
         <div class="flex w-full justify-content-start">
           <app-button

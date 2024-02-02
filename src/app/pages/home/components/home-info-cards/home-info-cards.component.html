@@ -1,4 +1,4 @@
-<div class="centered-container bg-white">
+<div class="centered-container surface-50">
   <div
     class="flex-center flex-column gap-3"
     [ngClass]="currentBreakpoint() == 'DESKTOP' ? 'py-7' : 'py-3'"
@@ -18,7 +18,7 @@
     >
       @for(card of cards; track $index) {
       <div
-        class="h-14rem border-round-2xl m-3 surface-50 p-4 flex flex-column gap-3"
+        class="h-14rem border-round-2xl m-3 surface-100 p-4 flex flex-column gap-3"
       >
         <i
           class="{{ card.icon }} text-primary font-semibold"
