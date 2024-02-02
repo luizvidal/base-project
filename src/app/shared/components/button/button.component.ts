@@ -1,10 +1,11 @@
+import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-button',
   standalone: true,
-  imports: [ButtonModule],
+  imports: [ButtonModule, NgClass],
   template: `
     <p-button
       [id]="id"
@@ -13,8 +14,12 @@ import { ButtonModule } from 'primeng/button';
       [outlined]="outlined"
       [label]="label"
       [styleClass]="styleClass"
+      [icon]="icon"
     >
-      <label [for]="id" class="p-button-label cursor-pointer"
+      <label
+        [for]="id"
+        class="cursor-pointer"
+        [ngClass]="{ 'p-button-label': !icon }"
         ><ng-content
       /></label>
     </p-button>
@@ -34,4 +39,5 @@ export class ButtonComponent {
   @Input() outlined = false;
   @Input() label = '';
   @Input() styleClass = '';
+  @Input() icon = '';
 }

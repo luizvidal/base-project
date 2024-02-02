@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { FooterComponent } from './components/footer/footer.component';
-import { HeaderComponent } from './components/header/header.component';
 import { HomeCarouselCardsComponent } from './components/home-carousel-cards/home-carousel-cards.component';
+import {
+  HomeFooterComponent
+} from './components/home-footer/home-footer.component';
+import { HomeHeaderComponent } from './components/home-header/home-header.component';
 import { HomeInfoCardsComponent } from './components/home-info-cards/home-info-cards.component';
 import { HomeTabPanelComponent } from './components/home-tab-panel/home-tab-panel.component';
 import { HomeTitleAndImageComponent } from './components/home-title-and-image/home-title-and-image.component';
@@ -10,12 +12,12 @@ import { HomeTitleAndImageComponent } from './components/home-title-and-image/ho
   selector: 'app-home',
   standalone: true,
   imports: [
-    HeaderComponent,
+    HomeHeaderComponent,
     HomeTitleAndImageComponent,
     HomeCarouselCardsComponent,
     HomeTabPanelComponent,
     HomeInfoCardsComponent,
-    FooterComponent,
+    HomeFooterComponent,
   ],
   template: `<app-header />
     <div class="container">

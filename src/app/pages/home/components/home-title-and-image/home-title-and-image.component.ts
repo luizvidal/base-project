@@ -18,7 +18,7 @@ import { BreakpointService } from '@common/services/breakpoint.service';
   >
     <div class="w-full" style="z-index: -1">
       <div
-        class="h-30rem flex flex-column justify-content-center align-items-start padding-left-align"
+        class="h-30rem flex flex-column justify-content-center align-items-start padding-left-align surface-100"
         [ngClass]="{
           'h-20rem px-3 gap-5': currentBreakpoint() != 'DESKTOP',
           'gap-7': currentBreakpoint() == 'DESKTOP'
